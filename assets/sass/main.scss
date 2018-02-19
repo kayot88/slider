@@ -1,0 +1,157 @@
+
+/* -----------------------------------------
+ GLOBAL
+----------------------------------------- */
+html {
+    height: 100%;
+}
+body, html {
+    min-height: 100%;
+}
+body {
+	font: 400 18px/1 'Poppins', Arial, sans-serif;
+	color: #222;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.overlay {
+	display: flex;
+	-webkit-flex-flow: column nowrap;
+	    -ms-flex-flow: column nowrap;
+	        flex-flow: column nowrap;
+	-webkit-justify-content: flex-end;
+	        justify-content: flex-end;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 30px;
+	width: 100%;
+	height: 100%;
+	font-size: 12px;
+	color: #FFF;
+	text-align: left;
+	text-transform: uppercase;
+	background-color: rgba(#1bf1ad, 0.9);
+	opacity: 0;
+	transition: all 0.3s ease-in-out;
+
+	&__title {
+		font-size: 22px;
+		letter-spacing: 0.2em;
+		
+	}
+}
+/* -----------------------------------------
+ HEADER
+----------------------------------------- */
+header {
+	padding: 60px 0 128px;
+}
+.intro {
+	position: relative;
+	padding: 0 15px;
+	width: 100%;
+	max-width: 1230px;
+	text-transform: uppercase;
+	color: #303030;
+	text-align: center;
+	
+	&__title {
+		position: relative;
+		font-size: 86px;
+		color: #000;
+		margin-bottom: 90px;
+		
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			background-position: 50%;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		&:after {
+			top: -60px;
+			right: 224px;
+			background-image: url('../img/plus.svg');
+			
+		}	
+
+		&:before {
+			top: 140px;
+			left: 0;
+			background-image: url('../img/triangle.svg');
+		}
+	}
+
+	&__desc {
+		font-weight: 600;
+		margin-bottom: 25px;
+	}
+}
+
+.intro-slider {
+	
+	&__item {
+		margin: 0 22px;
+	}
+
+	&__img-box {
+		position: relative;
+		height: 330px;
+		background-position: 50% 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		&:hover .overlay{
+			opacity: 1;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(#fff, 0.75);
+			transition: all 0.2s ease-in-out;
+
+			.slick-active &,
+			.slide-hover & {
+				background-color: rgba(#FFF, 1);
+			}
+		}
+	}
+
+	.slider-arrow {
+		display: block;
+		position: absolute;
+		top: 50%;
+		width: 96px;
+		height: 96px;
+		transform: translateY(-50%);
+		background-repeat: no-repeat;
+		background-position: 50%;
+		background-size: cover;
+		z-index: 2;
+		
+		&--prev {
+			left: 20px;
+			background-image: url('../img/slider-arrow-left.png');
+		}
+
+		&--next {
+			right: 20px;
+			background-image: url('../img/slider-arrow-right.png');
+		}
+	}
+}
+
